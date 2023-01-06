@@ -84,5 +84,5 @@ const showToast = (toastDiv, toastMsg, btn, closeBtn) => {
   closeButton.addEventListener('click', (e) => e.target.parentElement.classList.remove('active'))
   setTimeout(() => {
     toast.classList.remove('active')
-  }, 3500)
+  }, 4500)
 }
