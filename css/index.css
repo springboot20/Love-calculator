@@ -1,0 +1,356 @@
+@font-face {
+  font-family: Ubuntu;
+  src: url(../Ubuntu-Regular.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Ubuntu;
+  background: #d5dfe6;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  position: relative;
+}
+
+.love-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.love-form-container h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bolder;
+  color: hsl(60, 5%, 47%);
+}
+
+.container .love-form-container form#form .field {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  height: 50px;
+  padding: 10px;
+  border-radius: .4rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 6px #a9a9a9;
+}
+
+.container .love-form-container form#form .field input {
+  flex: 1;
+  background: none;
+  border: none;
+  height: 100%;
+  outline: none;
+  color: hsl(234, 19%, 18%);
+  font-weight: 500;
+  padding-left: 15px;
+  border-top-right-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+}
+
+.container .love-form-container form#form .field span {
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 1.3em;
+  color: hsl(236, 83%, 50%);
+}
+
+.container .love-form-container form#form button {
+  width: 100%;
+  padding: 1rem 0.4rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  background: rgb(26, 90, 200);
+  border-radius: .55rem;
+  cursor: pointer;
+  transition: all 400ms ease;
+  box-shadow: 0 0 7px #a9a9a9;
+}
+
+.container .love-form-container form#form button:active {
+  transform: scale(0.9);
+}
+
+.container div.love-percentage-display {
+  padding: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  background: #fff;
+  border-radius: 0.34em;
+  box-shadow: 0 0 8px #a9a9a9;
+}
+
+.container div.love-percentage-display p.success {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #21d44b;
+}
+
+.container div.love-percentage-display p.danger {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #d72822;
+}
+
+div.fadeIn {
+  opacity: 1;
+  pointer-events: all;
+  transition: all 2s ease-in;
+}
+
+div.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 2s ease-in;
+}
+
+.demo-page {
+  width: 1024px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.demo-page .demo-container {
+  width: 100%;
+}
+
+.demo-page h2.demo-title {
+  font-size: 2.4em;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 900;
+}
+
+.demo-page p.demo-text {
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-bottom: 1.2em;
+}
+
+span.heart-red {
+  color: #d72822;
+  font-size: 1.2em;
+}
+
+span.heart-green{
+  color: #21d44b;
+  font-size: 1.2em;
+}
+
+.demo-page .demo-container button {
+  width: 250px;
+  outline: none;
+  padding: 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: .55rem;
+  /* transition: all 400ms ease; */
+  box-shadow: 0 0 7px #a9a9a9;
+  background: rgb(26, 90, 200);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.demo-page .demo-container button:active {
+  transform: scale(0.9);
+}
+
+/* TOAST STYLING */
+
+.error-notification-message {
+  position: absolute;
+  display: flex;
+  top: 30px;
+  left: -100%;
+  width: 400px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 0.3rem;
+  transition: all 800ms linear;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.error-notification-message::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  height: 100%;
+  width: 0.6rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.error-notification-message::before {
+  background: hsl(0, 85%, 62%);
+}
+
+.error-notification-message span.fa-exclamation-circle,
+.error-notification-message span.fa-close {
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.error-notification-body {
+  width: 260px;
+}
+
+.error-notification-body p.error-notification-text {
+  width: 100%;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.error-notification-message span.fa-close {
+  right: 20px;
+  top: 10px;
+}
+
+.error-notification-message span.fa-exclamation-circle {
+  left: 20px;
+  color: hsl(0, 85%, 62%);
+}
+
+.error-notification-message.active {
+  left: 35px;
+  opacity: 1;
+}
+
+/* ul.animation {
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+}
+
+ul.animation li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  height: 60px;
+  width: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  bottom: -200px;
+  animation: floating 20s linear infinite;
+}
+
+ul.animation li:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  left: 5%;
+  animation-delay: 0.25s;
+}
+
+ul.animation li:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  left: 15%;
+  animation-delay: 0.3s;
+}
+
+ul.animation li:nth-child(3) {
+  width: 70px;
+  height: 70px;
+  left: 25%;
+  animation-delay: 0.4s;
+}
+
+ul.animation li:nth-child(4) {
+  width: 90px;
+  height: 90px;
+  left: 45%;
+  animation-delay: 0.64s;
+}
+
+ul.animation li:nth-child(5) {
+  width: 65px;
+  height: 65px;
+  left: 35%;
+  animation-delay: 1.4s;
+}
+
+ul.animation li:nth-child(6) {
+  width: 90px;
+  height: 90px;
+  left: 75%;
+  animation-delay: 1.4s;
+}
+
+ul.animation li:nth-child(7) {
+  width: 30px;
+  height: 30px;
+  left: 100%;
+  animation-delay: 3s;
+}
+
+ul.animation li:nth-child(8) {
+  width: 90px;
+  height: 90px;
+  left: 45%;
+  animation-delay: 1.4s;
+}
+
+ul.animation li:nth-child(9) {
+  width: 120px;
+  height: 120px;
+  left: 90%;
+  animation-delay: 2.4s;
+}
+
+ul.animation li:nth-child(10) {
+  width: 90px;
+  height: 90px;
+  left: 15%;
+  animation-delay: 1.9s;
+}
+
+@keyframes floating {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  to {
+    transform: translateY(-1200px) rotate(720deg);
+    opacity: 0;
+    border-radius: 80%;
+  }
+} */
